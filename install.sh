@@ -1,7 +1,17 @@
 #!/bin/bash
 
-ln -s .vimrc ~/.vimrc
-ln -s .bashrc ~/.bashrc
-ln -s .gitconfig ~/gitconfig
+function doIt () {
+	rsync --exclude=".git/" \
+		--exclude="install.sh" \
+		-avh . ~ ;
+	source ~/.bashrc
+}
 
+
+read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1;
+echo "";
+
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+	doIt;
+fi;
 
