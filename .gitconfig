@@ -1,5 +1,9 @@
 [user]
 	name = r-waki
 	email = r.wakeyii@gmail.com
+[core]
+	excludesfile = "~/.gitignore_global"
 [alias]
 	glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+
+

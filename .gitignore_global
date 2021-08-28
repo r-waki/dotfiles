@@ -1,0 +1,17 @@
+# Mac Generated
+.DS_Store
+.DS_Store?
+
+# Folder Ignore
+.vscode/
+.log/
+.logs/
+
+# File Ignore
+id_rsa
+
+# Python
+__pycache__/
+
+# Node
+node_modules/
