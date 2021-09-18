@@ -1,5 +1,12 @@
 #!/bin/bash
-
+#
+#######################################
+# dotfiles deploy home directory
+# Globals : REPLY
+# Argument: None
+# Returns : None
+#
+#######################################
 function doIt () {
 	rsync --exclude=".git/" \
 		--exclude="install.sh" \
@@ -8,7 +15,7 @@ function doIt () {
 }
 
 
-read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1;
+read -rp "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1;
 echo "";
 
 if [[ $REPLY =~ ^[Yy]$ ]]; then
