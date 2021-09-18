@@ -1,16 +1,10 @@
 
 
-alias ls="ls -G"
+alias ls='exa --group-directories-first'
 alias ll='ls -l'
 alias lla='ls -la'
 
-# git alias
-alias glog="git glog"
-
-# Terminal left side
-PS1="\u:\t $"
-
-alias ..='cd ..'
+alias grep='grep --color=auto'
 
 alias g='git'
 alias ga='git add'
@@ -19,5 +13,5 @@ alias gs='git status'
 alias gc='git commit'
 alias gco='git checkout'
 alias gp='git push'
-
+alias ..='cd ..'
 
