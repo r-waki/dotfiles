@@ -21,6 +21,8 @@ autoload -Uz _zinit
 
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 if which exa > /dev/null ; then
     alias ls='exa --group-directories-first'
@@ -42,5 +44,8 @@ alias gco='git checkout'
 alias gpsh='git push'
 alias ..='cd ..'
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+alias d='docker'
+alias dp='docker ps'
+alias dx='docker exec -it'
+alias dimg='docker image'
+
