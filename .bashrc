@@ -1,7 +1,7 @@
 
 
 alias ls="ls --color=auto"
-alias ll='ls -l'
+alias ll='ls -ltr'
 alias lla='ls -la'
 
 # git alias
