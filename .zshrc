@@ -48,4 +48,5 @@ alias d='docker'
 alias dp='docker ps'
 alias dx='docker exec -it'
 alias dimg='docker image'
+alias dexec='docker container exec -it'
 

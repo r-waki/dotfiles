@@ -10,6 +10,7 @@
 function doIt () {
 	rsync --exclude=".git/" \
 		--exclude="install.sh" \
+        --exclude="README.md"
 		-avh . ~ ;
 	source ~/.bashrc
 }
