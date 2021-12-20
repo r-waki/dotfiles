@@ -45,6 +45,7 @@ alias gpsh='git push'
 alias ..='cd ..'
 
 alias d='docker'
+alias dc='docker-compose'
 alias dp='docker ps'
 alias dx='docker exec -it'
 alias dimg='docker image'
