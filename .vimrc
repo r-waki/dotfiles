@@ -24,6 +24,7 @@ set hlsearch
 set nobackup
 set noswapfile
 set showmatch
+set listchars=tab:>.
 set list
 
 set tabstop=4
@@ -31,6 +32,7 @@ set shiftwidth=4
 set expandtab
 
 syntax enable
+
 
 " ESC key replace other key
 inoremap <silent> jj <esc>
