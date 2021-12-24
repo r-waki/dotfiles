@@ -7,12 +7,15 @@
 # Returns : None
 #
 #######################################
+
+set -eu
+
 function doIt () {
-	rsync --exclude=".git/" \
-		--exclude="install.sh" \
+    rsync --exclude=".git/" \
+        --exclude="install.sh" \
         --exclude="README.md" \
-		-avh . ~ ;
-	source ~/.bashrc
+        -avh . ~ ;
+    source ~/.bashrc
 }
 
 
@@ -20,6 +23,6 @@ read -rp "This may overwrite existing files in your home directory. Are you sure
 echo "";
 
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-	doIt;
+    doIt;
 fi;
 
