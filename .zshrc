@@ -24,7 +24,7 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-if which exa > /dev/null ; then
+if type exa > /dev/null ; then
     alias ls='exa --group-directories-first'
 else;
     alias ls='ls --color=auto'
@@ -37,6 +37,7 @@ alias grep='grep --color=auto'
 
 alias g='git'
 alias ga='git add'
+alias gb='git branch'
 alias gd='git diff'
 alias gs='git status'
 alias gc='git commit'
@@ -46,6 +47,7 @@ alias ..='cd ..'
 
 alias d='docker'
 alias dc='docker-compose'
+alias dcnt='docker container'
 alias dp='docker ps'
 alias dx='docker exec -it'
 alias dimg='docker image'
