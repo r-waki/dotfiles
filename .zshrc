@@ -30,6 +30,10 @@ else;
     alias ls='ls --color=auto'
 fi
 
+if type batcat > /dev/null ; then
+    alias cat='batcat'
+fi
+
 alias ll='ls -l'
 alias lla='ls -la'
 
