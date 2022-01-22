@@ -34,6 +34,10 @@ if type batcat > /dev/null ; then
     alias cat='batcat'
 fi
 
+if type bat > /dev/null ; then
+    alias cat='bat'
+fi
+
 alias ll='ls -l'
 alias lla='ls -la'
 
