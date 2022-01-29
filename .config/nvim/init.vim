@@ -32,6 +32,7 @@ set shiftwidth=4
 set expandtab
 
 syntax enable
+colorscheme iceberg
 
 
 " ESC key replace other key
