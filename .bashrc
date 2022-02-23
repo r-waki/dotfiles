@@ -1,4 +1,4 @@
-
+export $PATH=$PATH:/usr/local/go/bin
 
 alias ls="ls --color=auto"
 alias ll='ls -ltr'
