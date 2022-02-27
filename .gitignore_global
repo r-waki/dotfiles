@@ -8,7 +8,8 @@
 .logs/
 
 # File Ignore
-id_rsa
+id_rsa*
+known_hosts
 
 # Python
 __pycache__/
