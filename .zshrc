@@ -25,6 +25,7 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/opt/homebrew/bin
 
 if type exa > /dev/null ; then
     alias ls='exa --group-directories-first'
