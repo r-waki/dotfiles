@@ -6,5 +6,8 @@
 
 run the below command.
 
-`sh -c "$(curl -fsLS https://chezmoi.io/get)" -- init --apply $GITHUB_USERNAME`
+```
+sudo sh -c "$(curl -fsLS https://chezmoi.io/get)" -- -b /usr/local/bin
+chezmoi init --apply github:r-waki/dotfiles
+```
 
