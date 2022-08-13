@@ -7,7 +7,5 @@
 run the below command.
 
 ```
-sudo sh -c "$(curl -fsLS https://chezmoi.io/get)" -- -b /usr/local/bin
-chezmoi init --apply github:r-waki/dotfiles
+sh -c "$(curl -fsLS https://chezmoi.io/get)" -- -b $HOME/.local/bin init --apply r-waki
 ```
-
