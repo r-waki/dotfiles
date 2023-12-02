@@ -27,7 +27,7 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 export PATH=/opt/homebrew/bin:$PATH
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/.local/bin
-export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$HOME/go/bin
 
 
 if type exa > /dev/null ; then
