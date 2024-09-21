@@ -28,10 +28,10 @@ export PATH=/opt/homebrew/bin:$PATH
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:$HOME/go/bin
-
+export PATH=$PATH:/opt/homebrew/opt/mysql-client/bin
 
 if type exa > /dev/null ; then
-    alias ls='exa --group-directories-first'
+    alias ls='eza --group-directories-first'
 else;
     alias ls='ls --color=auto'
 fi
@@ -67,3 +67,4 @@ alias dx='docker exec -it'
 alias dimg='docker image'
 alias dexec='docker container exec -it'
 
+alias wiki='cd ~/mywiki-gitlab/docs;code .'

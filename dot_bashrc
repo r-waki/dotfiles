@@ -2,9 +2,9 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/.local/bin
 
 if type exa > /dev/null ; then
-    alias ls='exa --group-directories-first'
-    alias ll='exa --group-directories-first -snew -l'
-    alias lla='exa --group-directories-first -snew -la'
+    alias ls='eza --group-directories-first'
+    alias ll='eza --group-directories-first -snew -l'
+    alias lla='eza --group-directories-first -snew -la'
 else
     alias ls='ls --color=auto'
     alias ll='ls -ltr'
