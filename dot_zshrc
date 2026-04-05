@@ -49,18 +49,16 @@ alias lla='ls -la'
 
 alias grep='grep --color=auto'
 
-alias g='git'
 alias ga='git add'
-alias gb='git branch'
-alias gd='git diff'
+alias gbra='git branch'
 alias gs='git status'
-alias gc='git commit'
-alias gco='git checkout'
-alias gpsh='git push'
+alias gco='git commit'
+alias gch='git checkout'
+alias gpu='git push'
 alias ..='cd ..'
 
 alias d='docker'
-alias dc='docker-compose'
+alias dc='docker compose'
 alias dcnt='docker container'
 alias dp='docker ps'
 alias dx='docker exec -it'
@@ -68,3 +66,4 @@ alias dimg='docker image'
 alias dexec='docker container exec -it'
 
 alias wiki='cd ~/mywiki-gitlab/docs;code .'
+
