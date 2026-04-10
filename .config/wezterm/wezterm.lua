@@ -19,12 +19,10 @@ config.default_prog = get_default_prog()
 
 -- Font Settings
 config.font_size = 12.0
-config.font_with_fallback = (
-  wezterm.font_with_fallback({
-    'HackGenNerd',
-    'MesloLGS NF',
-  })
-)
+config.font = wezterm.font_with_fallback({
+  'HackGen Console NF',
+  'MesloLGS NF',
+})
 
 -- Window Appearance
 config.color_scheme = 'Kasugano (terminal.sexy)'
@@ -35,7 +33,6 @@ config.window_decorations = "RESIZE"
 -- Key Bindings
 config.keys = require("keybinds").keys
 config.key_tables = require("keybinds").key_tables
-config.leader = { key = "q", mods = "CTRL", timeout_milliseconds = 2000 }
 
 -- and finally, return the configuration to wezterm
 return config
