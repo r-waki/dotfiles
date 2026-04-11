@@ -126,6 +126,13 @@ return {
     { key = '}', mods = 'SUPER', action = act.ActivateTabRelative(1) },
     { key = '}', mods = 'SHIFT|SUPER', action = act.ActivateTabRelative(1) },
     { key = 'phys:Space', mods = 'SHIFT|CTRL', action = act.QuickSelect },
+    -- Copy Mode (vim-like)
+    { key = 'v', mods = 'LEADER', action = act.ActivateCopyMode },
+    -- Scroll (vim-like)
+    { key = 'u', mods = 'CTRL|SHIFT', action = act.ScrollByPage(-0.5) },
+    { key = 'd', mods = 'CTRL|SHIFT', action = act.ScrollByPage(0.5) },
+    { key = 'b', mods = 'CTRL|SHIFT', action = act.ScrollByPage(-1) },
+    { key = 'f', mods = 'CTRL|SHIFT', action = act.ScrollByPage(1) },
     { key = 'PageUp', mods = 'SHIFT', action = act.ScrollByPage(-1) },
     { key = 'PageUp', mods = 'CTRL', action = act.ActivateTabRelative(-1) },
     { key = 'PageUp', mods = 'SHIFT|CTRL', action = act.MoveTabRelative(-1) },
