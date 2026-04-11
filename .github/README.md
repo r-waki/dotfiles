@@ -50,6 +50,29 @@ brew install fzf fd ripgrep bat eza
 
 > **Note:** Linux では `fd` → `fdfind`、`bat` → `batcat` になる場合があるが、`.zshrc` で自動判定済み。
 
+### Windows
+
+Windows では [Scoop](https://scoop.sh/) でツールを管理し、[Git for Windows](https://gitforwindows.org/) 経由で yadm を使う。
+
+```powershell
+# Scoop をインストール（PowerShell で実行）
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+
+# Git と yadm をインストール
+scoop install git yadm
+
+# dotfiles をクローン（Git Bash または PowerShell で実行）
+yadm clone https://github.com/r-waki/dotfiles.git
+
+# 追加ツールをインストール
+scoop install fzf fd ripgrep bat eza wezterm neovim
+```
+
+> **Note:** Windows では AeroSpace は使用不可。タイリング WM が必要な場合は [GlazeWM](https://github.com/glzr-io/glazewm) などを検討。
+
+> **Note:** PowerShell プロファイルは `$PROFILE`（`~\Documents\PowerShell\Microsoft.PowerShell_profile.ps1`）に配置する。
+
 ---
 
 ## WezTerm ショートカット
