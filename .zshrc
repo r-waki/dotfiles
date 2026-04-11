@@ -67,3 +67,44 @@ alias dexec='docker container exec -it'
 
 alias wiki='cd ~/mywiki-gitlab/docs;code .'
 
+# ===== fzf =====
+# Shell integration (Ctrl+R: history / Ctrl+T: file / Alt+C: cd)
+eval "$(fzf --zsh)"
+
+# fd のバイナリ名を判定（Ubuntu では fdfind）
+if command -v fd > /dev/null; then
+  _FD=fd
+elif command -v fdfind > /dev/null; then
+  _FD=fdfind
+fi
+
+if [ -n "$_FD" ]; then
+  export FZF_DEFAULT_COMMAND="$_FD --type f --hidden --follow --exclude .git"
+  export FZF_CTRL_T_COMMAND="$_FD --type f --hidden --follow --exclude .git"
+  export FZF_ALT_C_COMMAND="$_FD --type d --hidden --follow --exclude .git"
+fi
+
+# bat のバイナリ名を判定（Ubuntu では batcat）
+if command -v bat > /dev/null; then
+  _BAT=bat
+elif command -v batcat > /dev/null; then
+  _BAT=batcat
+fi
+
+export FZF_DEFAULT_OPTS="
+  --height 40%
+  --layout=reverse
+  --border
+  --bind 'ctrl-/:toggle-preview'
+"
+
+if [ -n "$_BAT" ]; then
+  export FZF_CTRL_T_OPTS="
+    --preview '$_BAT --color=always --style=numbers {} 2>/dev/null || cat {}'
+    --preview-window=right:50%:wrap
+  "
+fi
+
+# git ブランチ切り替え
+alias gfco='git checkout $(git branch -a | sed "s/remotes\/origin\///" | sort -u | fzf | tr -d " ")'
+
