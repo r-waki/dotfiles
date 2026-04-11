@@ -20,8 +20,12 @@ config.default_prog = get_default_prog()
 -- Font Settings
 config.font_size = 12.0
 config.font = wezterm.font_with_fallback({
-  'HackGen Console NF',
-  'MesloLGS NF',
+  'HackGenNerd',
+  'HackGen35Nerd Console',
+  'BIZ UDGothic',
+  'Meiryo',
+  'MS Gothic',
+  'Noto Color Emoji',
 })
 
 -- Window Appearance

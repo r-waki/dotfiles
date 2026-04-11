@@ -48,3 +48,8 @@ function which ($command) {
       Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue
 } 
 
+#------------------------------------------------
+# boot oh-my-posh 
+#------------------------------------------------
+
+oh-my-posh init pwsh | Invoke-Expression
