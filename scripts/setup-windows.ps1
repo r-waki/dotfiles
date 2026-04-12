@@ -59,6 +59,49 @@ function Move-ExistingItem {
     Write-Host "Moved existing item to $backupPath"
 }
 
+function Test-LinkTargetsMatch {
+    param(
+        [Parameter(Mandatory)]
+        [string]$SourcePath,
+
+        [Parameter(Mandatory)]
+        [System.IO.FileSystemInfo]$TargetItem,
+
+        [Parameter(Mandatory)]
+        [string]$TargetPath
+    )
+
+    if (-not ($TargetItem.Attributes -band [System.IO.FileAttributes]::ReparsePoint)) {
+        return $false
+    }
+
+    $sourceResolved = Resolve-NormalizedPath -Path $SourcePath
+    $targetProperty = $TargetItem.PSObject.Properties["Target"]
+    $linkTargetProperty = $TargetItem.PSObject.Properties["LinkTarget"]
+    $linkTargets = @(
+        if ($null -ne $targetProperty) { $targetProperty.Value }
+        if ($null -ne $linkTargetProperty) { $linkTargetProperty.Value }
+    ) | Where-Object {
+        -not [string]::IsNullOrWhiteSpace($_)
+    }
+
+    foreach ($linkTarget in $linkTargets) {
+        $linkTargetPath = if ([System.IO.Path]::IsPathRooted($linkTarget)) {
+            $linkTarget
+        }
+        else {
+            Join-Path (Split-Path -Parent $TargetPath) $linkTarget
+        }
+
+        if ((Test-Path -LiteralPath $linkTargetPath) -and
+            (Resolve-NormalizedPath -Path $linkTargetPath) -eq $sourceResolved) {
+            return $true
+        }
+    }
+
+    return $false
+}
+
 function Install-Link {
     param(
         [Parameter(Mandatory)]
@@ -79,9 +122,8 @@ function Install-Link {
 
     if (Test-Path -LiteralPath $TargetPath) {
         $targetItem = Get-Item -LiteralPath $TargetPath -Force
-        $targetResolved = Resolve-NormalizedPath -Path $TargetPath
-
-        if ($targetResolved -eq $sourceResolved) {
+        if ((Test-LinkTargetsMatch -SourcePath $SourcePath -TargetItem $targetItem -TargetPath $TargetPath) -or
+            (Resolve-NormalizedPath -Path $TargetPath) -eq $sourceResolved) {
             Write-Host "Already linked: $TargetPath"
             return
         }
@@ -112,6 +154,7 @@ $mappings = @(
     @{ Source = ".config\powershell\user_profile.ps1"; Target = "Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1" },
     @{ Source = ".config\nvim"; Target = "AppData\Local\nvim" },
     @{ Source = ".config\scoop\config.json"; Target = "scoop\config\config.json" }
+    @{ Source = ".copilot\skills\git-autocommit.md"; Target = ".copilot\skills\git-autocommit.md"}
 )
 
 foreach ($mapping in $mappings) {
