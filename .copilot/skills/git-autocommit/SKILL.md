@@ -1,6 +1,6 @@
 ---
 name: git-autocommit
-description: "Generate commit message and automatically commit staged changes. ONLY use when user explicitly invokes /git-cm slash command. Do NOT trigger on general git questions."
+description: "Generate commit message and automatically commit staged changes. ONLY use when user explicitly invokes /git-autocommit slash command. Do NOT trigger on general git questions."
 ---
 
 # Git Auto-Commit

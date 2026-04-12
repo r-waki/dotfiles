@@ -154,7 +154,7 @@ $mappings = @(
     @{ Source = ".config\powershell\user_profile.ps1"; Target = "Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1" },
     @{ Source = ".config\nvim"; Target = "AppData\Local\nvim" },
     @{ Source = ".config\scoop\config.json"; Target = "scoop\config\config.json" }
-    @{ Source = ".copilot\skills\git-autocommit.md"; Target = ".copilot\skills\git-autocommit.md"}
+    @{ Source = ".copilot\skills\git-autocommit\SKILL.md"; Target = ".copilot\skills\git-autocommit\SKILL.md"}
 )
 
 foreach ($mapping in $mappings) {
