@@ -31,6 +31,8 @@ for name in .bashrc .zshrc .gitconfig .gitignore_global .vimrc .tmux.conf Brewfi
   link_path "$REPO_ROOT/$name" "$HOME_DIR/$name"
 done
 
+link_path "$REPO_ROOT/.copilot" "$HOME_DIR/.copilot"
+
 mkdir -p "$HOME_DIR/.config"
 
 for name in nvim wezterm exercism yarn aerospace; do
