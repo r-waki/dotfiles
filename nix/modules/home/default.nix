@@ -8,8 +8,9 @@
 
   programs.git = {
     enable = true;
-    userName = "r-waki";
-    userEmail = "r.wakeyii@gmail.com";
+    settings.user.name = "r-waki";
+    settings.user.email = "r.wakeyii@gmail.com";
+    signing.format = "openpgp";
   };
 
   imports = [
