@@ -11,16 +11,22 @@
 
   outputs = { nixpkgs, home-manager, ... }:
     let
-      system = "x86_64-linux"; # WSL2がIntel/AMDならこれ
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
+      systems = [ "x86_64-linux" "aarch64-darwin" ];
     in {
-      homeConfigurations."r-waki" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [ ./nix/modules/home ];
-      };
+      homeConfigurations = builtins.listToAttrs (map (system:
+        let
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
+        in
+        { name = "r-waki@${system}";
+          value = home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            modules = [ ./nix/modules/home ];
+          };
+        }
+      ) systems);
     };
 }
 
