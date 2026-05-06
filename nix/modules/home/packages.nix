@@ -18,6 +18,7 @@ in
       neovim
       gcc
       zsh
+      starship
       github-copilot-cli
     ];
 }
