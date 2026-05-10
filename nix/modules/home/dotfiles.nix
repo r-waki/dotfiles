@@ -5,7 +5,7 @@
   home.file.".zshrc".source = ../../../zsh/zshrc;
   home.file.".config/starship.toml".source =
     config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/zsh/starship.toml";
-  home.file.".tmux.conf".source = ../../../tmux/.tmux.conf;
+  home.file.".tmux.conf".source = ../../../tmux/tmux.conf;
   home.file.".copilot/skills".source = 
     config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/copilot/skills";
   home.file.".config/nvim".source =
