@@ -1,5 +1,6 @@
 if [ -x ~/.nix-profile/bin/home-manager ]; then
-  alias hms="home-manager switch --flake ~/dotfiles"
+  alias hmsl="home-manager switch --flake ~/dotfiles.#r-waki@x86_64-linux"
+  alias hmsm="home-manager switch --flake ~/dotfiles.#r-waki@aarch64-darwin"
 fi
 
 # enable color support of ls and also add handy aliases

@@ -12,6 +12,7 @@
       vscode
       neovim
       gcc
+      ripgrep
       zsh
       starship
       github-copilot-cli
