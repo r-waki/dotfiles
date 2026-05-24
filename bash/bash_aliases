@@ -21,9 +21,21 @@ alias l='ls -CF'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
+# Basic Alias
 alias ..='cd ..'
+
+# Git Alias
 alias g='git'
+alias ga='git add'
+alias gst='git status'
+alias gsw='git switch'
+alias gch='git checkout'
+alias gcm='git commit'
+alias gps='git push'
+alias gpl='git pull'
+
 alias d='docker'
 alias dp='docker ps'
 alias dc='docker compose'
 alias dx='docker container exec -it'
+

@@ -16,6 +16,8 @@ in
     settings.user.name = "r-waki";
     settings.user.email = "r.wakeyii@gmail.com";
     signing.format = "openpgp";
+    settings.alias.new-branch = "branch -b";
+    settings.alias.unstage = "reset -q HEAD --";
   };
 
   imports = [
