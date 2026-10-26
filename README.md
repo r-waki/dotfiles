@@ -53,6 +53,40 @@ home-manager switch -b backup --flake .
 
 `home.packages` を変えた場合は、`switch` 後に新しいシェルを開くと PATH も反映されやすいです。
 
+## AIエージェント用スキルの追加
+
+このリポジトリでは、エージェント向けスキルを `.agents/skills/` に置いて管理します。リポジトリをプロジェクトとして開くと、対応するエージェントがこのディレクトリのスキルを参照できます。
+
+### 自作スキル
+
+スキル名のディレクトリを作り、その中に `SKILL.md` を置きます。`name` と `description` を frontmatter に記述してください。必要に応じて補足資料や `agents/` などのファイルも同じディレクトリに追加できます。
+
+```text
+.agents/skills/<skill-name>/
+└── SKILL.md
+```
+
+```markdown
+---
+name: <skill-name>
+description: このスキルを使う場面と役割
+---
+
+# <Skill name>
+
+スキルの手順や判断基準を記述します。
+```
+
+### 既存スキルの追加
+
+[Skills CLI](https://skills.sh/docs/cli) を使うと、公開リポジトリからスキルを追加できます。リポジトリのルートで実行し、対話プロンプトで追加するスキルを選びます。
+
+```bash
+npx skills add <owner>/<repository>
+```
+
+追加後は `.agents/skills/` の内容と `.agents/.skill-lock.json` を確認し、必要なファイルだけをコミットします。lockfileも一緒に管理することで、導入元と同期状態を追跡できます。追加したスキルの内容・実行手順は信頼できるものか確認してから利用してください。
+
 ## このリポジトリの構成
 
 - `flake.nix`: Home Manager の入口
@@ -60,3 +94,4 @@ home-manager switch -b backup --flake .
 - `nix/modules/home/dotfiles.nix`: dotfiles のリンク設定
 - `nix/modules/home/packages.nix`: インストールするパッケージ
 - `bash/`, `zsh/`, `tmux/`, `nvim/`: 各設定本体
+- `.agents/skills/`: AIエージェント用スキル
