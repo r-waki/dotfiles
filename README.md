@@ -53,39 +53,27 @@ home-manager switch -b backup --flake .
 
 `home.packages` を変えた場合は、`switch` 後に新しいシェルを開くと PATH も反映されやすいです。
 
-## AIエージェント用スキルの追加
+## AIエージェント用スキルの導入
 
-このリポジトリでは、エージェント向けスキルを `.agents/skills/` に置いて管理します。リポジトリをプロジェクトとして開くと、対応するエージェントがこのディレクトリのスキルを参照できます。
-
-### 自作スキル
-
-スキル名のディレクトリを作り、その中に `SKILL.md` を置きます。`name` と `description` を frontmatter に記述してください。必要に応じて補足資料や `agents/` などのファイルも同じディレクトリに追加できます。
-
-```text
-.agents/skills/<skill-name>/
-└── SKILL.md
-```
-
-```markdown
----
-name: <skill-name>
-description: このスキルを使う場面と役割
----
-
-# <Skill name>
-
-スキルの手順や判断基準を記述します。
-```
-
-### 既存スキルの追加
-
-[Skills CLI](https://skills.sh/docs/cli) を使うと、公開リポジトリからスキルを追加できます。リポジトリのルートで実行し、対話プロンプトで追加するスキルを選びます。
+このリポジトリの `.agents/skills/` にあるスキルは、[Skills CLI](https://skills.sh/docs/cli) から各エージェントのユーザー環境へ導入できます。Node.js 22.20 以降を用意し、次を実行してください。
 
 ```bash
-npx skills add <owner>/<repository>
+npx skills add r-waki/dotfiles --all -g
 ```
 
-追加後は `.agents/skills/` の内容と `.agents/.skill-lock.json` を確認し、必要なファイルだけをコミットします。lockfileも一緒に管理することで、導入元と同期状態を追跡できます。追加したスキルの内容・実行手順は信頼できるものか確認してから利用してください。
+`--all` はリポジトリ内の全スキルを全対応エージェントに追加し、`-g` はプロジェクト単位ではなくユーザー単位で導入します。GitHub CopilotとClaude Codeだけに導入する場合は、対象エージェントを指定します。
+
+```bash
+npx skills add r-waki/dotfiles --skill '*' -g -a github-copilot -a claude-code
+```
+
+導入状況は次のコマンドで確認できます。
+
+```bash
+npx skills list -g
+```
+
+この操作は `.agents/` 全体をコピーするのではなく、CLIが検出したスキルを各エージェントから使えるように登録します。導入先やリンク方式を選びたい場合は `--all` を外して実行し、CLIの案内に従ってください。導入したスキルを更新するには `npx skills update -g` を実行します。
 
 ## このリポジトリの構成
 
@@ -94,4 +82,4 @@ npx skills add <owner>/<repository>
 - `nix/modules/home/dotfiles.nix`: dotfiles のリンク設定
 - `nix/modules/home/packages.nix`: インストールするパッケージ
 - `bash/`, `zsh/`, `tmux/`, `nvim/`: 各設定本体
-- `.agents/skills/`: AIエージェント用スキル
+- `.agents/skills/`: Skills CLIで導入できるAIエージェント用スキル
