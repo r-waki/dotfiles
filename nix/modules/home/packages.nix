@@ -16,5 +16,6 @@
       zsh
       starship
       github-copilot-cli
+      nodejs
     ];
 }
