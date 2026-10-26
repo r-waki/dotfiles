@@ -110,6 +110,10 @@ Get each part from the diff:
 - **Scope**: The module or the area that the change affects.
 - **Summary**: What changed, in one line.
 
+#### Language
+
+Write the message in English by default. If the user's arguments or request ask for Japanese (for example "japanese", "日本語でコミットして", "日本語で"), write the summary, the body, and the footer values in Japanese. Keep the type, the scope, and the footer tokens (`BREAKING CHANGE:`, `Closes:`, `Co-authored-by:`) in English, because tools parse them. In Japanese, write the summary in a short plain form without a period, for example `feat(auth): トークン更新を追加`. The 72-character limit applies to English; keep a Japanese summary short enough to read at a glance.
+
 ### 5. Commit
 
 Give each paragraph with a different `-m` option. Git puts a blank line between the paragraphs. This command works in Bash, PowerShell, and other shells.
