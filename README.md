@@ -16,7 +16,7 @@
 
 ## 新規端末での Nix / Home Manager 導入
 
-このリポジトリは `flake` を使うので、Nix では `nix-command` と `flakes` を有効にしてください。
+このリポジトリは `flake` を使うので、Nix では `nix-command` と home-manager switch -b backup --flake .`flakes` を有効にしてください。
 
 ```bash
 sh <(curl -L https://nixos.org/nix/install) --daemon
@@ -24,15 +24,23 @@ mkdir -p ~/.config/nix
 printf 'experimental-features = nix-command flakes\n' >> ~/.config/nix/nix.conf
 ```
 
-その後、このリポジトリを clone してから `home-manager` を実行します。
+インストール直後は、新しいシェルを開くか次を実行して Nix を PATH に通します。
+
+```bash
+. /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+```
+
+その後、このリポジトリを clone します。初回は `home-manager` コマンドがまだ存在しないため、`nix run` 経由で適用します。
 
 ```bash
 git clone <このリポジトリのURL> ~/dotfiles
 cd ~/dotfiles
-home-manager switch -b backup --flake .
+nix run home-manager/master -- switch -b backup --flake .#r-waki@x86_64-linux
 ```
 
-`flake.nix` は現状 `x86_64-linux` を対象にしています。WSL2 や Intel/AMD の Linux 端末向けです。
+適用後は `home-manager` コマンドが使えるようになります。
+
+設定名は `r-waki@<system>` 形式です。`flake.nix` は `x86_64-linux`(WSL2 や Intel/AMD の Linux)と `aarch64-darwin`(Apple Silicon の macOS)を対象にしています。macOS では `.#r-waki@aarch64-darwin` を指定してください。
 
 ## 設定変更を端末へ反映する方法
 
@@ -41,7 +49,7 @@ home-manager switch -b backup --flake .
 
 ```bash
 cd ~/dotfiles
-home-manager switch -b backup --flake .
+home-manager switch -b backup --flake .#r-waki@x86_64-linux
 ```
 
 3. 端末側で再読み込みする
