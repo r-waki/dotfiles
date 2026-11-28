@@ -20,6 +20,14 @@ in
     settings.alias.unstage = "reset -q HEAD --";
   };
 
+
+  programs.zsh = {
+    enable = true;
+    autosuggestion = {
+      enable = true;
+    };
+  };
+
   imports = [
     ./dotfiles.nix
     ./packages.nix
