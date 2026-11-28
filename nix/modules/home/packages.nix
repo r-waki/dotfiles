@@ -17,5 +17,6 @@
       starship
       github-copilot-cli
       nodejs
+      zellij
     ];
 }
