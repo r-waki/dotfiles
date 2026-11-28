@@ -30,6 +30,8 @@
 	k_cmd2 (tap-hold $tap-time $hold-time k (layer-while-held cmd2))
 	a_num (tap-hold $tap-time $hold-time a (layer-while-held num))
 	scln_num (tap-hold $tap-time $hold-time scln (layer-while-held num))
+  f_symbols (tap-hold $tap-time $hold-time f (layer-while-held symbols))
+  j_symbols (tap-hold $tap-time $hold-time j (layer-while-held symbols))
 	n_alt (tap-hold $tap-time $hold-time n (multi lalt (layer-while-held win-switch)))
 	v_alt (tap-hold $tap-time $hold-time v (multi lalt (layer-while-held win-switch)))
 )
@@ -45,7 +47,7 @@
 	_  _  _  _  _  _  _  _  _  _  _  _  _
 	_  _  _  _  _  _  _  _  _  _  _  _  _  _  _
 	_  _  _  _  _  _  _  _  _  _  _  _  _  _
-	_  @a_num  @s_cmd1  @d_cmd2  _  _  _  _  @k_cmd2  @l_cmd1  @scln_num  _  _
+	_  @a_num  @s_cmd1  @d_cmd2  @f_symbols  _  _  @j_symbols  @k_cmd2  @l_cmd1  @scln_num  _  _
 	_  _  _  _  @v_alt  _  @n_alt  _  _  _  _  _  _
 	_  _  _  _  _  _  _  _  _  _  _
 )
@@ -64,7 +66,7 @@
 	_  _  _  _  _  _  _  _  _  _  _  _  _
 	_  _  _  _  _  _  _  _  _  _  _  _  _  _  _
 	_  S-tab  tab  esc  _  _  C-y  C-pgup  C-S-l  _  _  _  _  _
-	_  C-a  _  C-pgdn  C-f  _  C-left  C-down  C-up  C-right  ret  _  _
+	_  C-a  C-s  C-pgdn  C-f  _  C-left  C-down  C-up  C-right  ret  _  _
 	_  C-z  C-x  C-c  C-v  _  C-home  C-end  C-+  C--  _  _  _
 	_  _  _  _  _  _  _  _  _  _  _
 )
@@ -93,6 +95,15 @@
 	_  _  _  _  _  _  _  7  8  9  _  _  _  _
 	_  _  tab  S-tab  _  _  _  4  5  6  _  _  _
 	_  _  _  _  _  _  _  1  2  3  _  _  _
+	_  _  _  _  _  _  _  _  _  _  _
+)
+
+(deflayer symbols
+	_  _  _  _  _  _  _  _  _  _  _  _  _
+	_  _  _  _  _  _  _  _  _  _  _  _  _  _  _
+	_  _  rbrc  bksl  S-7  _  _  apo  S-3  bspc  del  _  _  _
+	_  _  S-8  S-9  S-2  -  _  lbrc  S-ro  -  S-=  S-/  _
+	_  S-scln  -  S-apo  /  _  _  /  ro  S-yen  S-1  _  _
 	_  _  _  _  _  _  _  _  _  _  _
 )
 
